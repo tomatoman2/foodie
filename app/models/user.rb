@@ -1,0 +1,12 @@
+class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :validatable
+
+  validates :name, presence: true, uniqueness: true
+  # validates :user_id, {presence: true}
+  # def user
+  #   return User.find_by(id: self.user_id)
+  # end
+end
